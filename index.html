@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#101316">
+    <title>MPK Mini Web</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">Akai MPK mini</p>
+          <h1>MPK Mini Web</h1>
+        </div>
+        <button id="connect-midi" class="primary" type="button">Connecter MIDI</button>
+      </section>
+
+      <section class="status-strip" aria-live="polite">
+        <span id="midi-state">MIDI non connecté</span>
+        <span id="audio-state">Audio prêt</span>
+      </section>
+
+      <section class="device-panel">
+        <div class="screen">
+          <span id="display-note">--</span>
+          <small id="display-detail">branche le MPK mini en USB</small>
+        </div>
+
+        <div class="knob-bank" id="knob-bank" aria-label="Knobs MIDI"></div>
+
+        <div class="pad-bank" id="pad-bank" aria-label="Pads MIDI"></div>
+
+        <div class="keyboard" id="keyboard" aria-label="Clavier virtuel"></div>
+      </section>
+
+      <section class="controls">
+        <div class="control-group">
+          <label for="input-select">Entrée</label>
+          <select id="input-select"></select>
+        </div>
+        <div class="control-group">
+          <label for="wave-select">Son</label>
+          <select id="wave-select">
+            <option value="sawtooth">Saw</option>
+            <option value="square">Square</option>
+            <option value="triangle">Triangle</option>
+            <option value="sine">Sine</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="volume">Volume</label>
+          <input id="volume" type="range" min="0" max="100" value="42">
+        </div>
+      </section>
+
+      <section class="mapping">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Mapping local</p>
+            <h2>Raccourcis MIDI</h2>
+          </div>
+          <button id="export-preset" class="secondary" type="button">Exporter</button>
+        </div>
+        <div id="macro-grid" class="macro-grid"></div>
+        <div class="preset-row">
+          <button id="reset-map" class="danger" type="button">Effacer mapping</button>
+          <label class="import-button">
+            Importer
+            <input id="import-preset" type="file" accept="application/json">
+          </label>
+        </div>
+      </section>
+
+      <section class="monitor">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Signal</p>
+            <h2>Moniteur MIDI</h2>
+          </div>
+          <button id="clear-log" class="secondary" type="button">Vider</button>
+        </div>
+        <ol id="event-log"></ol>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
