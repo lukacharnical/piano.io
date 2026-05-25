@@ -1,0 +1,9 @@
+{
+  "name": "MPK Mini Web",
+  "short_name": "MPK Web",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#101316",
+  "theme_color": "#101316",
+  "description": "Interface Web MIDI pour Akai MPK mini."
+}
